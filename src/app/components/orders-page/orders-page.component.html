@@ -1,0 +1,11 @@
+<div class="w-full h-20"></div>
+<h1 class="text-center text-3xl mt-4">Orders Page</h1>
+<div *ngIf="!(tempOrdersList.length  === 0)">
+    <app-order-item *ngFor="let order of tempOrdersList" [order]="order"></app-order-item>
+</div>
+<div *ngIf="tempOrdersList.length  === 0" class="border-2 border-black rounded m-auto mt-6 min-w-64 text-xl text-center p-6 font-semibold min-w large-min-width">
+    No previous orders.
+    <div class="text-base font-normal">
+        Click <span appClickprop [routerLink]="'/home'" class="text-blue-500 underline">here</span> to browse some coins.
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.min-w {
+    min-width: 355px;
+    width: 355px;
+}
+
+@media screen and (min-width: 800px) {
+
+    .large-min-width {
+        min-width: 600px;
+        width: 600px;
+    }
+}

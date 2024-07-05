@@ -1,0 +1,28 @@
+<div class="relative">
+    <div class="h-20 w-full"></div>
+    <div class="m-auto pl-4 mt-4 pt-0.5 pb-5 border-b-2 border-gray-100">
+        Balance: <span class="text-green-400 ml-1">{{ largeBalance ? '$' + largeFormatter.format(this.currentBalance) : formatter.format(this.currentBalance) }}</span>
+    </div>
+    <div class="border-2 border-black rounded m-auto min-w-64 mt-6 h-28 grid grid-rows-2 pb-2 pt-1 min-w large-min-width">
+        <div class="text-center mt-2 text-xl">
+            Cart Total: <span class="font-bold">{{ formatter.format(this.cartValue) }}</span>
+        </div>
+        <div appClickprop (click)="finishOrder()" class="cursor-pointer large-button w-52 h-8 m-auto bg-green-600 text-white text-center pt-1 rounded-sm">
+            COMPLETE ORDER
+        </div>
+    </div>
+    <div appClickprop (click)="clearCart()" class="cursor-pointer large-button w-52 h-8 mt-6 m-auto bg-red-600 text-white text-center pt-1 rounded-sm">
+        CLEAR CART
+    </div>
+    <div *ngIf="!(currentCart.length  === 0)" class="border-2 border-black rounded m-auto mt-4 min-w large-min-width">
+        <app-cart-item *ngFor="let item of currentCart" [item]="item"></app-cart-item>
+    </div>
+    <div *ngIf="currentCart.length  === 0" class="border-2 border-black rounded m-auto mt-6 min-w-64 text-xl text-center p-6 font-semibold min-w large-min-width">
+        Your cart is empty
+        <div class="text-base font-normal">
+            Click <span appClickprop [routerLink]="'/home'" class="text-blue-500 underline cursor-pointer">here</span> to browse some coins.
+        </div>
+    </div>
+    <div (click)="toggleOrderPopUp()" [ngClass]="{'z-10': this.orderPopUp, '-z-10': !this.orderPopUp}" [@fadeInOut]="orderPopUp ? 'open' : 'closed'" class="w-full h-screen bg-gray-700 top-0 z-10 absolute"></div>
+    <app-order-notification [show]="this.orderPopUp"></app-order-notification>
+</div>

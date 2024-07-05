@@ -1,0 +1,6 @@
+<a (click)="toggleMenu()" [routerLink]="'/' + section.name" [ngClass]="{'bg-green-100': this.active}" class="rounded-full pl-6 pr-6 h-14 p-2 grid m-auto w-fit">
+    <img class="w-10 inline-block" [src]="renderImage()" />
+    <div class="relative">
+        <p [ngClass]="{'text-green-600': this.active, 'text-gray-800': !this.active}" class="inline-block text-xl cursor-pointer absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">{{ section.name | coinName }}</p>
+    </div>
+</a>

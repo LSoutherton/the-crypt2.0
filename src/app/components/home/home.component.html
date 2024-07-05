@@ -1,0 +1,27 @@
+<div class="h-20 w-full"></div>
+<div class="w-full h-16 balance-sort-grid border-b-2 border-gray-100 pt-4 pb-4 fixed bg-white z-20">
+  <div class="m-auto ml-4 text-large">
+    Balance: <span class="text-green-400 ml-1">{{ this.largeBalance ? '$' + largeFormatter.format(this.currentBalance) : formatter.format(this.currentBalance) }}</span>
+  </div>
+  <div class="relative">
+    <div [ngClass]="{'open-grid' : this.showSort}" class="absolute mr-4 w-32 sort-grid border-2 border-black overflow-hidden bg-gray-200 rounded text-sm right-0">
+      <button (click)="toggleSort()" class="cursor-pointer">{{ this.sortedBy }}</button>
+      <div (click)="sortPriceHtL()" class="m-auto cursor-pointer">Price: H to L</div>
+      <div (click)="sortPriceLtH()" class="m-auto cursor-pointer">Price: L to H</div>
+      <div (click)="sortAthHtL()" class="m-auto cursor-pointer">ATH: H to L</div>
+      <div (click)="sortAthLtH()" class="m-auto cursor-pointer">ATH: L to H</div>
+      <div (click)="sortCapHtL()" class="m-auto cursor-pointer">MKT Cap: H to L</div>
+      <div (click)="sortCapLtH()" class="m-auto cursor-pointer">MKT Cap: L to H</div>
+    </div>
+  </div>
+</div>
+<div class="h-16 w-full"></div>
+<div class="w-full m-auto text-center relative side-padding side-padding-large">
+  <app-crypto-sheet *ngFor="let coin of currentList" [coin]="coin" (toggleBuy)="toggleBuyPopUp()" (toggleHoldings)="toggleHoldingsPopUp()" (toggleError)="toggleErrorPopUp()"></app-crypto-sheet>
+</div>
+<app-purchase-notification [show]="this.toggleBuy"></app-purchase-notification>
+<app-holdings-notification [show]="this.toggleHoldings"></app-holdings-notification>
+<app-purchase-error [show]="this.toggleError"></app-purchase-error>
+<div (click)="toggleBuyPopUp()" [ngClass]="{'z-10': this.toggleBuy, '-z-10': !this.toggleBuy}" [@fadeInOut]="toggleBuy ? 'open' : 'closed'" class="w-full h-screen bg-gray-700 top-0 fixed"></div>
+<div (click)="toggleHoldingsPopUp()" [ngClass]="{'z-10': this.toggleHoldings, '-z-10': !this.toggleHoldings}" [@fadeInOut]="toggleHoldings ? 'open' : 'closed'" class="w-full h-screen bg-gray-700 top-0 fixed"></div>
+<div (click)="toggleErrorPopUp()" [ngClass]="{'z-10': this.toggleError, '-z-10': !this.toggleError}" [@fadeInOut]="toggleError ? 'open' : 'closed'" class="w-full h-screen bg-gray-700 top-0 fixed"></div>

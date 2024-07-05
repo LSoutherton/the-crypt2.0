@@ -1,0 +1,25 @@
+.header-grid {
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+}
+
+svg {
+    color: rgb(55, 55, 55);
+}
+  
+.menu-button .line {
+    stroke-dasharray: 60 31 60 1000;
+    transition: 1s;
+}
+
+.menu-button-clicked .line {
+    stroke-dasharray: 60 105 60 1000;
+    stroke-dashoffset: -90;
+}
+
+@media screen and (min-width: 600px) {
+
+    .search-bar-width {
+        max-width: 600px;
+    }
+}

@@ -1,0 +1,8 @@
+<div class="w-full h-20"></div>
+<h1 class="text-center text-3xl mt-4 pb-2 large-title">Holdings</h1>
+<div class="text-center text-lg large-total">
+    Total value: <span class="text-green-500 font-semibold">{{ largeValue ? '$' + largeFormatter.format(this.totalValue) : formatter.format(this.totalValue)}}</span>
+</div>
+<div class="w-10/12 m-auto text-center">
+    <app-holding *ngFor="let holding of tempHoldingsList" [holding]="holding" [values]="valuesList"></app-holding>
+</div>

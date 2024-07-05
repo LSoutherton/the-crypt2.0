@@ -1,0 +1,14 @@
+<div class="w-full header-grid h-20 border-b-2 border-gray-900 fixed z-50 bg-white">
+    <div class="h-full w-20 relative inline-block">
+        <img routerLink="/home" class="cursor-pointer w-6/12 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" src="assets/images/home.svg" />
+    </div>
+    <div class="flex w-8/12 h-full float-left pt-5">
+        <input class="search-bar-width bg-gray-200 w-full h-10 text-gray-700 placeholder:text-gray-700 pl-2 rounded" [(ngModel)]="input" (input)="change($event)" type="text" placeholder="Search"/>
+    </div>
+    <div (click)="toggleMenu()" [ngClass]="{'menu-button-clicked': tempMenu }" class='cursor-pointer menu-button overflow-hidden inline-block ml-4 mr-1 float-right bg-transparent mt-3 z-10'>
+        <svg stroke='currentColor' fill='none' [ngClass]="{'-translate-y-2 translate-x-1.5 rotate-45': tempMenu }" class='duration-1000' viewBox='-10 -10 110 110' width='50'>
+            <path class='line' stroke-width='10' stroke-linecap='round' stroke-linejoin='round' d='m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 31 v 70'></path>
+        </svg>
+    </div>
+</div>
+<app-menu [menu]="tempMenu"></app-menu>

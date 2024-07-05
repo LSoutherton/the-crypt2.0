@@ -1,0 +1,14 @@
+<div class="w-full h-24 grid-main mt-3 mb-3 pl-2 ml-2 pr-2">
+    <img class="w-20 m-auto" [src]="item.image" />
+    <div class="grid grid-rows-3 pl-4">
+        <div class="font-semibold text-xl mt-1">
+            {{ item.coin | coinName }}
+        </div>
+        <div class="mt-1">
+            <span [ngClass]="{'text-red-500' : this.sell, 'text-green-600' : !this.sell}" class="font-semibold">{{ this.sell ? 'Sell' : 'Buy' }}</span> {{ this.sell ? (tempNumber | twoDp) : (item.number | twoDp) }} {{ item.id.toUpperCase() }} at <span class="">{{ formatter.format(item.price) }}</span>
+        </div>
+        <div>
+            Total: <span [ngClass]="{'text-red-500' : this.sell, 'text-green-600' : !this.sell}" class="font-semibold">{{ this.sell ? formatter.format( tempNumber * item.price ) : formatter.format( item.number * item.price ) }}</span>
+        </div>
+    </div>
+</div>

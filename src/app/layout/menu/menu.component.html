@@ -1,0 +1,5 @@
+<div [@fadeInOut]="menu ? 'open' : 'closed'" class="menu-width fixed top-20 right-0 w-5/12 bg-white h-full min-w-52 z-50">
+    <div class="grid grid-rows-4 h-1/2 mt-14">
+        <app-menu-section [currentPath]="currentPath" *ngFor="let section of menuList" [section]="section"></app-menu-section>
+    </div>
+</div>

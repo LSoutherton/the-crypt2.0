@@ -1,0 +1,54 @@
+.width {
+    width: 300px;
+}
+
+.card-height {
+    min-height: 440px;
+}
+
+.card-height-open {
+    min-height: 560px;
+}
+
+.preserve {
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.backface {
+    backface-visibility: hidden;
+}
+
+.transform-rotate {
+    transform: rotateY(180deg);
+}
+
+.card {
+    transform: rotateY(180deg);
+}
+
+.small-grid {
+    display: grid;
+    grid-template-rows: 40px 160px 60px 1fr 60px;
+    transition: grid-template-rows 500ms;
+    transition: 0.5s;
+}
+
+.closed-grid {
+    grid-template-rows: 40px;
+    transition: grid-template-rows 500ms;
+    transition: 0.5s;
+    height: 40px;
+}
+
+.open-grid {
+    grid-template-rows: 40px 40px 40px 40px;
+    height: 160px;
+}
+
+@media screen and (min-width: 600px) {
+    .sheet-gap {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+}
